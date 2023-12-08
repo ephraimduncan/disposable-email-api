@@ -23,6 +23,11 @@ pnpm run deploy
 
 ### Usage
 
+#### Endpoints
+
+GET /
+POST /
+
 #### GET /
 
 This endpoint returns information about the API.
