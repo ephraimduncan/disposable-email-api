@@ -25,8 +25,10 @@ pnpm run deploy
 
 #### Endpoints
 
+```
 GET /
 POST /
+```
 
 #### GET /
 
