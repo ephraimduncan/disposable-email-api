@@ -1,4 +1,4 @@
-export const AllowList = [
+export const AllowListArray = [
   "123mail.org",
   "126.com",
   "139.com",
@@ -177,3 +177,5 @@ export const AllowList = [
   "yepmail.net",
   "your-mail.com",
 ];
+
+export const AllowList = new Set(AllowListArray);

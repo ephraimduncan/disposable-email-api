@@ -3,8 +3,8 @@ import { poweredBy } from "hono/powered-by";
 import { logger } from "hono/logger";
 import { validator } from "hono/validator";
 
-import { BlockList } from "./block-list";
-import { AllowList } from "./allow-list";
+import { BlockList, BlockListArray } from "./block-list";
+import { AllowList, AllowListArray } from "./allow-list";
 
 const app = new Hono();
 app.use("*", poweredBy());
@@ -39,8 +39,8 @@ app.post(
   }),
   async (c) => {
     const { email }: { email: string } = await c.req.json();
-    const isDisposableEmail = BlockList.includes(email.split("@")[1]);
-    const isAllowedList = AllowList.includes(email.split("@")[1]);
+    const isDisposableEmail = BlockList.has(email.split("@")[1]);
+    const isAllowedList = AllowList.has(email.split("@")[1]);
 
     return c.json({
       email: email,
