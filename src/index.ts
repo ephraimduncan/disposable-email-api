@@ -2,13 +2,15 @@ import { Hono } from "hono";
 import { poweredBy } from "hono/powered-by";
 import { logger } from "hono/logger";
 import { validator } from "hono/validator";
+import { cors } from "hono/cors";
 
-import { BlockList, BlockListArray } from "./block-list";
-import { AllowList, AllowListArray } from "./allow-list";
+import { BlockList } from "./block-list";
+import { AllowList } from "./allow-list";
 
 const app = new Hono();
 app.use("*", poweredBy());
 app.use("*", logger());
+app.use("*", cors());
 
 app.get("/", (c) => {
   return c.json({
